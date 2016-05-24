@@ -23,8 +23,17 @@
 	<!-- <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" 
 		/> -->
 
+	<!-- Uncomment this line when using local mysql db -->
+	<!-- <Resource name="jdbc/UsersDB" auth="Container" type="javax.sql.DataSource" -->
+	<!-- maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver" -->
+	<!-- url="jdbc:mysql://localhost:3306/analytics" username="root" password="admin" 
+		/> -->
+
+	<!-- Uncomment this line when using Openshift DB -->
 	<Resource name="jdbc/UsersDB" auth="Container" type="javax.sql.DataSource"
 		maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/analytics" username="root" password="admin" />
+		url="mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/demoapp"
+		username="adminpDIx9CU" password="NyrAnZkvWY45" />
+
 
 </Context>
