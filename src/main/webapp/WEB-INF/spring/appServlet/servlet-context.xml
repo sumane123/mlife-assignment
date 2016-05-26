@@ -43,6 +43,12 @@
 
 	<!-- Create DataSource Bean -->
 
+	<!-- <beans:bean id="dbDataSource" -->
+	<!-- class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+	<!-- <beans:property name="jndiName" value="java:comp/env/jdbc/demoapp" 
+		/> -->
+	<!-- </beans:bean> -->
+
 	<beans:bean id="dbDataSource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<beans:property name="jndiName" value="java:comp/env/jdbc/analytics" />

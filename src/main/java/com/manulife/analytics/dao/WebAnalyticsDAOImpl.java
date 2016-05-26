@@ -87,7 +87,7 @@ public class WebAnalyticsDAOImpl implements IAnalyticsDAO {
 		// Using JDBC template to query the DB.
 		List<Map<String, Object>> results = jdbcTemplate.queryForList(query,
 				strDate, limit);
-		logger.debug(" getTopWebsitesByDate : After successful execution of Query - Result is : "
+		logger.info(" getTopWebsitesByDate : After successful execution of Query - Result is : "
 				+ results);
 
 		/*
@@ -109,7 +109,7 @@ public class WebAnalyticsDAOImpl implements IAnalyticsDAO {
 				websiteList.add(website);
 			}
 		}
-		analyticsMap.put(strDate, websiteList);
+		analyticsMap.put("result", websiteList);
 		logger.debug(" END  - getTopWebsitesByDate" + results);
 		return analyticsMap;
 
