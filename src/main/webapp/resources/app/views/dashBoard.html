@@ -1,6 +1,5 @@
 <div class="wrapper">
-	<div class="sidebar" data-color="gray"
-		data-image="assets/img/sidebar-5.jpg">
+	<div class="sidebar" data-color="gray" data-image="./sidebar-4.jpg">
 
 		<!--
 
@@ -16,8 +15,8 @@
 			</div>
 
 			<ul class="nav">
-				<li class="active"><a href="dashboard.html"> <i
-						class="pe-7s-graph"></i>
+				<li class="active"><a href="/Analytics/resources/index.html#/">
+						<i class="pe-7s-graph"></i>
 						<p>Dashboard</p>
 				</a></li>
 			</ul>
@@ -81,7 +80,7 @@
 		<div class="content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-sm-6">
 						<div class="card">
 							<div class="header">
 								<h4 class="title">Website Statistics - Grid View</h4>
@@ -98,69 +97,50 @@
 									<button type="button" class="btn btn-fill  btn-sm"
 										ng-click="getWebstat(date1)">Submit</button>
 								</form>
-
-
-
-								<!-- 								<div class="row"> -->
-								<!-- 									<div class="col-md-2"> -->
-								<!-- 										<label> Choose a Date : </label> -->
-								<!-- 									</div> -->
-								<!-- 									<div class="col-md-2"> -->
-								<!-- 										<ng-datepicker ng-model="date1" format="YYYY-MM-DD" -->
-								<!-- 											view-format="YYYY-MM-DD"> </ng-datepicker> -->
-								<!-- 									</div> -->
-								<!-- 									<div class="col-xs-2"> -->
-								<!-- 										<button type="button" class="btn btn-fill  btn-sm" -->
-								<!-- 											ng-click="getWebstat(date1)">Submit</button> -->
-								<!-- 									</div> -->
-								<!-- 								</div> -->
 							</div>
-							<div ng-if="hitCount!=''"
-								class="content table-responsive table-full-width">
+							<div class="content">	
+								<div ng-if="hitCount!=''"
+									class="content table-responsive table-full-width">
+									<table class="table table-hover table-striped">
+										<tr>
+											<th ng-click="doSort('name')">Name <i
+												class="icon-arraw-up"></i></th>
+											<th ng-click="doSort('visits')">Visits <i
+												class="fa fa-fw fa-sort"></i></th>
+	
+	
+										</tr>
+										<tr
+											ng-repeat="website in hitCount | date | orderBy:sortBy:reverse">
+											<td>{{ website.name }}</td>
+											<td>{{ website.visits }}</td>
+	
+	
+										</tr>
+									</table>
+									<p ng-show="!hitCount.length">no vals with this filter</p>
+	
+								</div>
+							</div>
+						
+						</div>
+					</div>	
+					<div class="col-sm-6">
+						<div class="card">
+							<div class="header">
+								<h4 class="title">Website Statistics - Chart View</h4>
+								<p class="category">Top 5 Websites based of # of hits</p>
+							</div>
+							<div class="content">
 
-
-								<table class="table table-hover table-striped">
-									<tr>
-										<th ng-click="doSort('name')">Name <i
-											class="icon-arraw-up"></i></th>
-										<th ng-click="doSort('visits')">Visits <i
-											class="fa fa-fw fa-sort"></i></th>
-
-
-									</tr>
-									<tr
-										ng-repeat="website in hitCount | date | orderBy:sortBy:reverse">
-										<td>{{ website.name }}</td>
-										<td>{{ website.visits }}</td>
-
-
-									</tr>
-								</table>
-
-								<p ng-show="!hitCount.length">no vals with this filter</p>
+								<span> TODO- Under Development</span>
 
 							</div>
+
 						</div>
 					</div>
-				</div>
 
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card">
-								<div class="header">
-									<h4 class="title">Website Statistics - Chart View</h4>
-									<p class="category">Top 5 Websites based of # of hits</p>
-								</div>
-								<div class="content">
 
-									<span> TODO- Under Development</span>
-
-								</div>
-
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
