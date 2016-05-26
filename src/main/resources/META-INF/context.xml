@@ -25,15 +25,15 @@
 
 	<!-- Uncomment this line when using local mysql db -->
 	<Resource name="jdbc/UsersDB" auth="Container" type="javax.sql.DataSource"
-	maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/analytics" username="root" password="admin" />
+		maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/analytics" username="root" password="admin" />
 
 
-	<!-- Uncomment this line when using Openshift DB -->
-<!-- 	<Resource name="jdbc/UsersDB" auth="Container" type="javax.sql.DataSource" -->
-<!-- 		maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver" -->
-<!-- 		url="jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/demoapp" -->
-<!-- 		username="adminpDIx9CU" password="NyrAnZkvWY45" /> -->
+	<!-- Uncomment this line when using mysql DB @ Openshift cloud -->
+	<!-- <Resource name="jdbc/MySQLDS" auth="Container" type="javax.sql.DataSource" -->
+	<!-- maxActive="100" maxIdle="30" maxWait="10000" driverClassName="com.mysql.jdbc.Driver" -->
+	<!-- url="jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/demoapp" -->
+	<!-- username="adminpDIx9CU" password="NyrAnZkvWY45" /> -->
 
 
 </Context>

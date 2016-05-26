@@ -8,9 +8,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing 
-		infrastructure -->
-
+<!-- 	<beans:bean -->
+<!-- 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" 	id="handlerMapping"> -->
+<!-- 		<beans:property name="alwaysUseFullPath" value="true"> -->
+<!-- 		</beans:property> -->
+<!-- 	</beans:bean> -->
+	
+	<context:component-scan base-package="com.manulife.analytics.controller" />
+	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -43,12 +48,16 @@
 
 	<!-- Create DataSource Bean -->
 
+	<!-- Uncomment this line when using mysql DB @ Openshift cloud -->
 	<!-- <beans:bean id="dbDataSource" -->
 	<!-- class="org.springframework.jndi.JndiObjectFactoryBean"> -->
-	<!-- <beans:property name="jndiName" value="java:comp/env/jdbc/demoapp" 
+	<!-- <beans:property name="jndiName" value="java:comp/env/jdbc/MySQLDS" 
 		/> -->
 	<!-- </beans:bean> -->
 
+
+
+	<!-- Uncomment this line when using local mysql db -->
 	<beans:bean id="dbDataSource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<beans:property name="jndiName" value="java:comp/env/jdbc/analytics" />
@@ -58,7 +67,6 @@
 	<!-- <jee:jndi-lookup id="dbDataSource" jndi-name="jdbc/analytics" expected-type="javax.sql.DataSource" 
 		/> -->
 
-	<context:component-scan base-package="com.manulife.analytics.controller" />
 
 	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dbDataSource"></beans:property>
